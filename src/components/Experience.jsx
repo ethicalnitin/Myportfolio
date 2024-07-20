@@ -63,7 +63,7 @@ const Experience = () => {
                   initial={{ opacity: 0, x: -100 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 1.5, delay: index * 0.4 }}
-                  className="mr-2 mt-4 rounded bg-neutral-400 px-2 py-1 text-white-500"
+                  className="rounded bg-neutral-400 px-2 py-1 text-black text-sm"
                 >
                   {tech}
                 </motion.span>
