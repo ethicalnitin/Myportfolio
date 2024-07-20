@@ -3,7 +3,7 @@ import project2 from "../assets/projects/LeloYar.png";
 
 export const HERO_CONTENT = 'A full-stack developer who is good at DSA and an AI enthusiast, turning challenges into innovative solutions';
 
-export const ABOUT_TEXT = `I am a dedicated and versatile full-stack developer with a passion for creating efficient and user-friendly web applications. I have worked on different techs like JavaScript, HTML, CSS, C++, Python, React.js, Node.js, Express.js, and state management with Redux Toolkit and Context API. I’m adept at API development with REST and GraphQL and skilled in database management with MongoDB, PostgreSQL, and MySQL. My journey in tech began with a curiosity for programming and has evolved into a career where I continuously learn and adapt. I thrive in collaborative environments, solving complex problems, and delivering high-quality solutions. Outside of coding, I enjoy exploring new technologies and contributing to open-source projects.`;
+export const ABOUT_TEXT = `I am a dedicated and versatile full-stack developer with a passion for creating efficient and user-friendly web applications. I have worked on different techs like JavaScript, HTML, CSS, C++, Python, React.js, Node.js, Express.js, and state management with Redux Toolkit and Context API. I’m adept at API development with REST and GraphQL and skilled in database management with MongoDB, PostgreSQL, and MySQL. I thrive in collaborative environments, solving complex problems, and delivering high-quality solutions. Outside of coding, I enjoy exploring new technologies and contributing to open-source projects.`;
 
 export const EXPERIENCES = [
   {
