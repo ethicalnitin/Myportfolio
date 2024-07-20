@@ -56,7 +56,7 @@ const Experience = () => {
               >
                 {experience.description}
               </motion.p>
-
+              <div className="flex flex-wrap gap-2">
               {experience.technologies.map((tech, index) => (
                 <motion.span
                   key={index}
@@ -67,6 +67,7 @@ const Experience = () => {
                 >
                   {tech}
                 </motion.span>
+            </div>
               ))}
             </div>
           </div>
