@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
    <nav className="top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-transparent shadow-md">
   <div className="flex items-center">
-    <img className="h-8 w-auto" src={logo} alt="logo" />
+  
   </div>
   <div className="flex items-center gap-4 text-2xl ml-auto">
     <a href="https://github.com/ethicalnitin" target="_blank" rel="noopener noreferrer"> 
