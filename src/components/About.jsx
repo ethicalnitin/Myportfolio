@@ -35,7 +35,7 @@ const About = () => {
           </div>
         </motion.div>
         <div className="w-full lg:w-1/2 lg:p-8">
-          <div className="p-8 flex items-center justify-center lg:justify-start">
+          <div className="p-0 flex items-center justify-center lg:justify-start">
             <motion.p
               variants={container(0)}
               initial="hidden"
