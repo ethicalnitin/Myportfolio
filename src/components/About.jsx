@@ -22,7 +22,7 @@ const About = () => {
           whileInView={{ opacity: 1, x: 0 }}
           initial={{ opacity: 0, x: 0 }}
           animate={{ x: 100 }}
-          transition={{ ease: "easeOut", duration: 4 }}
+          transition={{ ease: "easeOut", duration: 3 }}
           className="w-full lg:w-1/2 lg:p-8"
         >
           <div className="flex items-center justify-center">
@@ -35,7 +35,7 @@ const About = () => {
           </div>
         </motion.div>
         <div className="w-full lg:w-1/2 lg:p-8">
-          <div className="p-0 flex items-center justify-center lg:justify-start">
+          <div className="p-1 flex items-center justify-center lg:justify-start">
             <motion.p
               variants={container(0)}
               initial="hidden"
