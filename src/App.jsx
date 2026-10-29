@@ -1,33 +1,33 @@
-
-import Hero from './components/Hero'
-import Navbar from './components/Navbar'
-import About from './components/About'
-import Technology from './components/Technology'
-import Experience from './components/Experience'
-import Projects from './components/Projects'
-import Contact from './components/Contact'
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Experience from "./components/Experience";
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
+import Background from "./components/Background";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
-    <div className="overflow-x-hidden text-neutal-300 antialiased selection:bg-cyan-300 selection:text-cyan-900 "> 
-      <div className=" fixed top-0 -z-10 h-full w-full ">
-      <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
-      </div>
-     
-      <div className="container mx-auto px-10">
+    <>
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-3 focus:z-50 focus:rounded-[3px] focus:bg-ink focus:px-3 focus:py-2 focus:text-sm focus:text-bg"
+      >
+        Skip to content
+      </a>
       <Navbar />
-      <Hero />
-      <About />
-      <Technology />
-      <Experience/>
-      <Projects/>
-      <Contact />
-      
-      </div>
+      <main id="main">
+        <Hero />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Background />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
+};
 
-
-    </div>
-  )
-}
-
-export default App
+export default App;

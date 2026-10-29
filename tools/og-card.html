@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Source for public/og.png (1200x630 link preview). Run `npm run render`. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=block">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body { background: #f7f6f2; color: #17181c; font-family: "IBM Plex Sans", Arial, sans-serif;
+         display: grid; grid-template-columns: 1fr 360px; padding: 72px 80px; gap: 40px; }
+  .mono { font-family: "IBM Plex Mono", Consolas, monospace; }
+  .kicker { font-size: 20px; color: #b4410e; font-weight: 500; }
+  h1 { font-size: 76px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.05; margin-top: 20px; }
+  p.line { font-size: 27px; color: #464950; margin-top: 28px; line-height: 1.4; max-width: 640px; }
+  .url { position: absolute; left: 80px; bottom: 64px; font-size: 20px; color: #686b73; }
+  .rule { position: absolute; left: 80px; right: 80px; bottom: 112px; height: 1px; background: #dad7ce; }
+  svg { align-self: center; }
+</style>
+</head>
+<body>
+  <div>
+    <p class="kicker mono">Backend engineer · Node.js · Java / Spring Boot</p>
+    <h1>Nitin Srivastava</h1>
+    <p class="line">Sole backend developer of Jurident. Case studies with architecture, decisions and trade-offs.</p>
+  </div>
+  <!-- A miniature of the case-study sequence diagram -->
+  <svg width="360" height="300" viewBox="0 0 360 300" fill="none" aria-hidden="true">
+    <g stroke="#dad7ce" stroke-width="2"><line x1="40" y1="20" x2="40" y2="290"/><line x1="180" y1="20" x2="180" y2="290"/><line x1="320" y1="20" x2="320" y2="290"/></g>
+    <g stroke="#17181c" stroke-width="2.5">
+      <line x1="40" y1="60" x2="172" y2="60"/><path d="M172 54 L182 60 L172 66 Z" fill="#17181c"/>
+      <line x1="180" y1="105" x2="312" y2="105"/><path d="M312 99 L322 105 L312 111 Z" fill="#17181c"/>
+      <line x1="180" y1="210" x2="312" y2="210"/><path d="M312 204 L322 210 L312 216 Z" fill="#17181c"/>
+    </g>
+    <g stroke="#686b73" stroke-width="2.5" stroke-dasharray="7 6">
+      <line x1="318" y1="150" x2="190" y2="150"/><line x1="318" y1="250" x2="190" y2="250"/><line x1="178" y1="270" x2="50" y2="270"/>
+    </g>
+    <g fill="#686b73"><path d="M190 144 L180 150 L190 156 Z"/><path d="M190 244 L180 250 L190 256 Z"/><path d="M50 264 L40 270 L50 276 Z"/></g>
+    <rect x="10" y="168" width="60" height="22" rx="3" stroke="#b4410e" stroke-width="2" stroke-dasharray="4 3"/>
+  </svg>
+  <div class="rule"></div>
+  <p class="url mono">portfolioreact1.vercel.app</p>
+</body>
+</html>

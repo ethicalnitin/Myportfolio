@@ -1,80 +1,32 @@
 import { EXPERIENCES } from "../constants";
-import { motion } from "framer-motion";
-
-const cont = (delay) => ({
-  hidden: { x: -100, opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: { duration: 1, delay: delay }
-  }
-});
+import Section from "./Section";
 
 const Experience = () => {
   return (
-    <div className="border-b border-neutral-900 pb-4">
-      <motion.h2
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -100 }}
-        transition={{ duration: 1.5 }}
-        className="my-20 text-center text-4xl text-white"
-      >
-        Work <span className="text-gray-600">Experience</span>
-      </motion.h2>
-      <div>
-        {EXPERIENCES.map((experience, index) => (
-          <div key={index} className="mb-8 flex flex-wrap lg:justify-center">
-            <div className="w-full lg:w-1/4">
-              <motion.p
-                whileInView={{ opacity: 1, x: 0 }}
-                initial={{ opacity: 0, x: -100 }}
-                transition={{ duration: 0.5 }}
-                className="mb-2 text-sm text-neutral-400"
-              >
-                {experience.year}
-              </motion.p>
+    <Section id="experience" index="01" label="Experience">
+      <ol className="space-y-12">
+        {EXPERIENCES.map((exp) => (
+          <li key={exp.company} className="grid gap-y-2 md:grid-cols-[10rem_minmax(0,1fr)] md:gap-x-8">
+            <p className="font-mono text-sm text-ink-3 md:pt-1">{exp.period}</p>
+            <div>
+              <h3 className="text-lg font-semibold leading-snug">
+                {exp.role} <span className="font-normal text-ink-3">· {exp.company}</span>
+              </h3>
+              <ul className="bullets mt-3 max-w-prose space-y-2 text-ink-2">
+                {exp.points.map((point) => (
+                  <li key={point.slice(0, 40)}>{point}</li>
+                ))}
+              </ul>
+              {exp.caseStudy && (
+                <a href={exp.caseStudy.href} className="link mt-3 inline-block text-sm">
+                  {exp.caseStudy.label} →
+                </a>
+              )}
             </div>
-
-            <div className="w-full max-w-xl lg:w-3/4">
-              <motion.h6
-                variants={cont(0)}
-                initial="hidden"
-                whileInView="visible"
-                className="text-white mb-2 font-semibold"
-              >
-                {experience.role} -{" "}
-                <span className="text-sm text-purple-100">
-                  {experience.company}
-                </span>
-              </motion.h6>
-
-              <motion.p
-                variants={cont(0)}
-                initial="hidden"
-                whileInView="visible"
-                className="mb-4 text-neutral-400"
-              >
-                {experience.description}
-              </motion.p>
-              <div className="flex flex-wrap gap-2">
-              {experience.technologies.map((tech, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0, x: -100 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 1.5, delay: index * 0.4 }}
-                  className="rounded bg-neutral-400 px-2 py-1 text-black text-sm"
-                >
-                  {tech}
-                </motion.span>
-           
-              ))}
-                 </div>
-            </div>
-          </div>
+          </li>
         ))}
-      </div>
-    </div>
+      </ol>
+    </Section>
   );
 };
 

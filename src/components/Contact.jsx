@@ -1,86 +1,38 @@
-import { CONTACT } from "../constants";
-import Location from './Location';
-import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FiFileText } from "react-icons/fi";
+import { SiLeetcode } from "react-icons/si";
+import { PROFILE } from "../constants";
+import Section from "./Section";
 
-const container = (delay) => ({
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, delay: delay }
-  }
-});
+const LINKS = [
+  { label: "Resume (PDF)", href: PROFILE.resume, Icon: FiFileText },
+  { label: "LinkedIn", href: PROFILE.linkedin, Icon: FaLinkedin },
+  { label: "GitHub", href: PROFILE.github, Icon: FaGithub },
+  { label: "LeetCode", href: PROFILE.leetcode, Icon: SiLeetcode },
+];
 
 const Contact = () => {
   return (
-    <footer className="bg-transparent pt-20 pb-12">
-      <div className="max-w-5xl mx-auto px-6">
-        <motion.div  whileInView={{ opacity: 1, x: 0 }}
-        initial={{ opacity: 0, x: -100 }}
-        transition={{ duration: 0.5 }}
-          variants={container(4)}
-          className="text-center"
-        >
-          <h1 className="text-4xl text-white">
-            Contact <span className="text-gray-600">Me</span>
-          </h1>
-        </motion.div>
-
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <motion.div
-           whileInView={{ opacity: 1, y: 0 }}
-           initial={{ opacity: 0, y: -100 }}
-           transition={{ duration: 1 }}
-             variants={container(5)}
-            className="text-white text-center"
-          >
-            <h3 className="text-xl font-semibold mb-2">Address</h3>
-            <p>{CONTACT.address}</p>
-          </motion.div>
-
-          <motion.div
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: -100 }}
-            transition={{ duration: 1.5 }}
-              variants={container(6)}
-            className="text-white text-center"
-          >
-            <h3 className="text-xl font-semibold mb-2">Phone</h3>
-            <p>{CONTACT.phoneNo}</p>
-          </motion.div>
-
-          <motion.div
-           whileInView={{ opacity: 1, x: 0 }}
-           initial={{ opacity: 0, x: -100 }}
-           transition={{ duration: 2 }}
-             variants={container(7)}
-            className="text-white text-center"
-          >
-            <h3 className="text-xl font-semibold mb-2">Email</h3>
-            <a
-              href={`mailto:${CONTACT.email}`}
-              className="text-blue-400 hover:underline"
-            >
-              {CONTACT.email}
+    <Section id="contact" index="05" label="Contact">
+      <p className="max-w-prose text-2xl font-medium leading-snug tracking-tight sm:text-3xl">
+        Hiring for a backend or full-stack role? Email is the fastest way to reach me.
+      </p>
+      <a
+        href={`mailto:${PROFILE.email}`}
+        className="link mt-6 inline-block break-all font-mono text-base sm:text-lg"
+      >
+        {PROFILE.email}
+      </a>
+      <ul className="mt-8 flex flex-wrap gap-3">
+        {LINKS.map(({ label, href, Icon }) => (
+          <li key={label}>
+            <a href={href} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+              <Icon aria-hidden="true" /> {label}
             </a>
-          </motion.div>
-        </div>
-
-        <motion.div
-       whileInView={{ opacity: 1, y: 0 }}
-       initial={{ opacity: 0, y: -100 }}
-       transition={{ duration: 3 }}
-         variants={container(7)}
-          className="mt-8"
-        >
-          <Location />
-        </motion.div>
-
-        <div className="mt-12 text-center text-sm text-gray-500">
-          <p>&copy; 2025 Gonna Be Mine!</p>
-        </div>
-      </div>
-    </footer>
+          </li>
+        ))}
+      </ul>
+    </Section>
   );
 };
 

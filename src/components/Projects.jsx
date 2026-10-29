@@ -1,60 +1,30 @@
-import { PROJECTS } from "../constants";
-import { motion } from "framer-motion";
+import { CASE_STUDIES } from "../constants";
+import CaseStudy from "./CaseStudy";
+import Section from "./Section";
 
 const Projects = () => {
   return (
-    <div className="border-b border-neutral-800 pb-4">
-      <motion.h2
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -100 }}
-        transition={{ duration: 0.5 }}
-        className="my-20 text-center text-4xl text-white"
-      >
-        Projects
-      </motion.h2>
+    <Section id="work" index="02" label="Work">
+      <p className="max-w-prose text-ink-2">
+        Two systems, written up the way I&apos;d explain them in a design review: the problem, how it works, what I
+        traded off, and what I&apos;d change.
+      </p>
+      <nav aria-label="Case studies" className="mt-4 flex flex-wrap gap-x-6 gap-y-1 font-mono text-sm">
+        {CASE_STUDIES.map((study, i) => (
+          <a key={study.id} href={`#${study.id}`} className="link">
+            {String(i + 1).padStart(2, "0")} {study.title.split(":")[0]}
+          </a>
+        ))}
+      </nav>
 
-      <div>
-        {PROJECTS.map((project, index) => (
-          <div key={index} className="mb-12 flex flex-wrap lg:justify-center">
-            <motion.div
-              whileInView={{ opacity: 1, x: 0 }}
-              initial={{ opacity: 0, x: -100 }}
-              transition={{ duration: 1.5 }}
-              className="w-full lg:w-1/4 flex justify-center"
-            >
-              <img
-                src={project.image}
-                alt={project.title}
-                width={150}
-                height={150}
-                className="p-1 w-56 rounded-full"
-              />
-            </motion.div>
-
-            <motion.div
-              whileInView={{ opacity: 1, x: 0 }}
-              initial={{ opacity: 0, x: 100 }}
-              transition={{ duration: 2.5 }}
-              className="text-white w-full max-w-xl lg:w-3/4 flex flex-col items-start"
-            >
-              <h6 className="mb-2 font-semibold">{project.title}</h6>
-              <p className="mb-4 text-neutral-400">{project.description}</p>
-
-              <div className="flex flex-wrap gap-2">
-                {project.technologies.map((tech, index) => (
-                  <span
-                    key={index}
-                    className="rounded bg-neutral-400 px-2 py-1 text-black text-sm"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
+      <div className="mt-14 space-y-20">
+        {CASE_STUDIES.map((study, i) => (
+          <div key={study.id} className={i > 0 ? "border-t border-rule pt-14" : undefined}>
+            <CaseStudy study={study} />
           </div>
         ))}
       </div>
-    </div>
+    </Section>
   );
 };
 

@@ -1,81 +1,42 @@
-import { motion } from "framer-motion";
-import { HERO_CONTENT } from "../constants";
-import Resume from "../assets/NitinSDE.pdf";
-import yome from "../assets/yome.png";
-
-const container = (delay) => ({
-  hidden: { x: 100, opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: { duration: 1, delay: delay },
-  },
-});
+import { FiArrowRight } from "react-icons/fi";
+import { HERO, PROFILE } from "../constants";
 
 const Hero = () => {
   return (
-    <div className="border-b border-neutral-900 pb-4 lg:mb-35 flex items-center justify-center min-h-screen">
-      <motion.div  whileInView={{ opacity: 1, x: 0 }}
-                initial={{ opacity: 0, x: -100 }}
-                transition={{ duration: 0.5 }} className="w-full lg:w-3/4 flex flex-col lg:flex-row items-center lg:items-start">
-       
-        <div className="flex-1 flex justify-center lg:justify-start">
-        <motion.img
-            src={yome}
-            alt="Mine"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 3, delay:1.2 }}
-            className="w-150 h-auto" // 
-          />
-        </div>
+    <section id="top" aria-label="Introduction" className="pb-16 pt-14 sm:pb-20 sm:pt-20">
+      <div className="wrap grid gap-y-6 lg:grid-cols-[11rem_minmax(0,1fr)] lg:gap-x-12">
+        <p className="label lg:pt-1.5">{PROFILE.location}</p>
+        <div className="min-w-0">
+          <p className="font-mono text-sm text-accent">
+            {PROFILE.role} · {PROFILE.stack}
+          </p>
+          <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">{PROFILE.name}</h1>
+          <p className="mt-6 max-w-prose text-lg leading-relaxed text-ink-2">{HERO.intro}</p>
 
-        {/* Text Content */}
-        <div className="flex-1 flex flex-col items-center lg:items-start lg:pl-8">
-          <motion.h1
-            variants={container(0)}
-            initial="hidden"
-            animate="visible"
-            className="pb-4 text-6xl font-thin tracking-tight lg:mt-1 lg:text-8xl text-white text-center lg:text-left"
-          >
-            Nitin Srivastava
-          </motion.h1>
-
-          <motion.span
-            variants={container(0.5)}
-            initial="hidden"
-            animate="visible"
-            className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-3xl tracking-tight text-transparent text-center lg:text-left"
-          >
-            Full Stack Developer
-          </motion.span>
-
-          <motion.p
-            variants={container(1)}
-            initial="hidden"
-            animate="visible"
-            className="my-2 max-w-xl py-6 font-light tracking-tighter text-white text-center lg:text-left"
-          >
-            {HERO_CONTENT}
-          </motion.p>
-
-          <div className="flex justify-center lg:justify-start mt-8">
-            <motion.a
-              href={Resume}
-              download="NitinResume.pdf"
-              variants={container(1.5)}
-              initial="hidden"
-              animate="visible"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mr-4"
-            >
-              Download Resume
-            </motion.a>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href="#jurident" className="btn btn-primary">
+              Read the Jurident case study <FiArrowRight aria-hidden="true" />
+            </a>
+            <a href={PROFILE.resume} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+              Resume (PDF)
+            </a>
+            <a href={`mailto:${PROFILE.email}`} className="btn btn-ghost">
+              Email me
+            </a>
           </div>
+
+          <dl className="mt-12 grid border-t border-rule sm:grid-cols-2 xl:grid-cols-4">
+            {HERO.facts.map((fact) => (
+              <div key={fact.term} className="border-b border-rule py-4 sm:pr-6">
+                <dt className="label">{fact.term}</dt>
+                <dd className="mt-1.5 font-medium leading-snug">{fact.detail}</dd>
+                <dd className="mt-0.5 text-sm text-ink-3">{fact.sub}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
-      </motion.div>
-    </div>
+      </div>
+    </section>
   );
 };
 

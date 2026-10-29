@@ -1,13 +1,153 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-
-
+/* Design tokens. Light theme reads like a printed spec; dark mirrors it.
+   Every text colour here passes WCAG AA against --bg. */
 :root {
+  --bg: #f7f6f2;
+  --panel: #eeece5;
+  --rule: #dad7ce;
+  --ink: #17181c;
+  --ink-2: #464950;
+  --ink-3: #686b73;
+  --accent: #b4410e;
+  --accent-soft: #f4e4d9;
+  color-scheme: light;
+}
 
-    font-family: "Inter", sans-serif;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121316;
+    --panel: #1b1d21;
+    --rule: #2c2f35;
+    --ink: #ecebe6;
+    --ink-2: #b9babe;
+    --ink-3: #8f9197;
+    --accent: #f08a4b;
+    --accent-soft: #2b1e16;
+    color-scheme: dark;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: theme("fontFamily.sans");
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--bg);
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  section[id],
+  article[id] {
+    scroll-margin-top: 5.5rem;
+  }
+  code {
+    font-family: theme("fontFamily.mono");
+    font-size: 0.875em;
+    background: var(--panel);
+    border-radius: 3px;
+    padding: 0.1em 0.35em;
+  }
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  .label {
+    @apply font-mono text-xs font-medium uppercase tracking-[0.08em] text-ink-3;
+  }
+  .link {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--rule);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.15s ease;
+  }
+  .link:hover {
+    text-decoration-color: var(--accent);
+  }
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-[3px] border px-4 py-2 text-sm font-medium transition-colors;
+  }
+  .btn-primary {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--bg);
+  }
+  .btn-primary:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .btn-ghost {
+    border-color: var(--rule);
+    color: var(--ink);
+  }
+  .btn-ghost:hover {
+    border-color: var(--ink);
+  }
+  .bullets > li {
+    @apply relative pl-5;
+  }
+  .bullets > li::before {
+    content: "";
+    position: absolute;
+    left: 0.15rem;
+    top: 0.72em;
+    width: 0.5rem;
+    height: 1px;
+    background: var(--ink-3);
+  }
+
+  /* Sequence diagram arrows (SequenceTrace.jsx). Requests are solid,
+     responses dashed, the same convention as UML sequence diagrams. */
+  .arrow {
+    position: relative;
+    border-top: 1.5px solid var(--ink);
+  }
+  .arrow.is-response {
+    border-top-style: dashed;
+    border-top-color: var(--ink-2);
+  }
+  .arrow::after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+  }
+  .arrow.to-right::after {
+    right: -1px;
+    border-left: 7px solid var(--ink);
+  }
+  .arrow.to-left::after {
+    left: -1px;
+    border-right: 7px solid var(--ink);
+  }
+  .arrow.is-response.to-right::after {
+    border-left-color: var(--ink-2);
+  }
+  .arrow.is-response.to-left::after {
+    border-right-color: var(--ink-2);
+  }
 }

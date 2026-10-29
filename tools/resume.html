@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nitin Srivastava - Resume</title>
+<!-- Source for public/Nitin_Srivastava_Resume.pdf. Edit here, then run `npm run render`.
+     Keep claims in step with src/constants/index.js. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=block">
+<style>
+  @page { size: A4; margin: 9.5mm 13mm 8mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "IBM Plex Sans", Arial, sans-serif; font-size: 9.2pt; line-height: 1.34; color: #17181c; }
+  a { color: inherit; text-decoration: none; }
+  header { border-bottom: 1.2pt solid #17181c; padding-bottom: 6pt; }
+  h1 { font-size: 19pt; font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; }
+  .tagline { font-size: 10pt; font-weight: 500; color: #b4410e; margin-top: 1pt; }
+  .contact { margin-top: 3pt; font-size: 8.7pt; color: #464950; }
+  .contact + .contact { margin-top: 0.5pt; }
+  .contact span + span::before { content: "  |  "; white-space: pre; color: #9a9ca3; }
+  h2 { font-size: 8.8pt; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+       margin-top: 8.5pt; padding-bottom: 2pt; border-bottom: 0.6pt solid #c9c6bd; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; margin-top: 5pt; }
+  .row h3 { font-size: 9.8pt; font-weight: 600; }
+  .row .when { white-space: nowrap; font-size: 8.9pt; color: #464950; }
+  .sub { margin-top: 1pt; font-size: 8.9pt; font-style: italic; color: #464950; }
+  ul { margin-top: 2.5pt; padding-left: 11pt; }
+  li { margin-top: 2pt; padding-left: 1pt; }
+  li::marker { color: #686b73; }
+  p.summary { margin-top: 5pt; }
+  .skills p { margin-top: 2.5pt; }
+  b { font-weight: 600; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Nitin Srivastava</h1>
+  <p class="tagline">Backend Software Engineer · Node.js · Java / Spring Boot · Gurugram, India</p>
+  <p class="contact">
+    <span>+91-9559075158</span><span><a href="mailto:srivastava.nitin0908@gmail.com">srivastava.nitin0908@gmail.com</a></span><span><a href="https://portfolioreact1.vercel.app">portfolioreact1.vercel.app</a></span>
+  </p>
+  <p class="contact">
+    <span><a href="https://www.linkedin.com/in/ethicalnitin">linkedin.com/in/ethicalnitin</a></span><span><a href="https://github.com/ethicalnitin">github.com/ethicalnitin</a></span>
+  </p>
+</header>
+
+<h2>Summary</h2>
+<p class="summary">
+  Backend engineer with nearly two years of professional experience: production REST APIs on Node.js/Express and
+  MongoDB, plus Java 17/Spring Boot 3 with MySQL. Sole backend developer of <b>Jurident</b>, an AI legal-tech platform
+  serving 10,000+ lawyers that won the MSME Hackathon and a 95% government grant. Now a Software Engineer at
+  <b>LTIMindtree</b>, analysing application network traffic for a Google security engagement.
+</p>
+
+<h2>Experience</h2>
+
+<div class="row"><h3>Software Engineer, LTIMindtree</h3><span class="when">Sep 2025 – Present</span></div>
+<ul>
+  <li><b>Google client engagement, application security analysis:</b> analyse ~10 applications a day, capturing and
+    inspecting their network traffic and API calls with Wireshark and HTTP Toolkit to identify and report malicious
+    behaviour.</li>
+  <li>Completed LTIMindtree's Java full-stack training (Java 17, Spring Boot 3, Spring Security, Angular 16) and
+    delivered the EstateConnect capstone (see Projects).</li>
+</ul>
+
+<div class="row"><h3>Backend Developer, Valsco Technology</h3><span class="when">Jan 2025 – Aug 2025</span></div>
+<p class="sub">Jurident, AI legal-tech platform (jurident.com) · Node.js, Express, MongoDB, Redis, OpenAI API, DigitalOcean</p>
+<ul>
+  <li><b>Sole backend developer:</b> designed, built and deployed the Node.js/Express + MongoDB backend on DigitalOcean,
+    owning API design, data modelling and integrations for a platform serving 10,000+ lawyers.</li>
+  <li>Built High Court and District Court case-status lookups on the eCourts portals, which have no public API. The
+    service relays the portal's session cookie and CAPTCHA to the user, replays the session against the case-query
+    endpoint and returns normalised JSON. Handles 500+ lookups a day.</li>
+  <li>Used the same approach (form submit + Cheerio parsing) to verify advocate enrolment with the Bar Council of Delhi.</li>
+  <li>Built JuriAssistance, an in-app legal assistant on the OpenAI API that answers common user questions.</li>
+  <li>Profiled slow endpoints, then added MongoDB indexes for the slow query patterns and a Redis cache for repeated
+    reads.</li>
+</ul>
+
+<h2>Projects</h2>
+
+<div class="row"><h3>EstateConnect, real-estate platform (LTIMindtree training capstone)</h3><span class="when">2025 – 26</span></div>
+<p class="sub">Java 17, Spring Boot 3, Spring Security, Spring Data JPA, Hibernate, MySQL, Angular 16, TypeScript</p>
+<ul>
+  <li>Built a 22-endpoint REST API across auth, property, inquiry, feedback and AI-assistant modules in a layered
+    controller–service–repository design. Modelled 5 JPA/Hibernate entities with @ManyToOne relations and derived
+    queries, and mapped domain exceptions to HTTP status codes (409 duplicate, 400 invalid OTP).</li>
+  <li>Implemented JWT authentication in Spring Security with a custom OncePerRequestFilter and BCrypt password hashing.
+    An Angular HTTP interceptor attaches the Bearer token to API calls.</li>
+  <li>Added signup email OTP via Spring Mail (SMTP/STARTTLS): single-use SecureRandom codes with a 5-minute expiry.</li>
+  <li>Built 23 Angular components, including an admin inquiry dashboard (pending and high-priority views), property
+    search with filters and price sorting, an EMI calculator and a Gemini-powered assistant.</li>
+</ul>
+
+<h2>Skills</h2>
+<div class="skills">
+  <p><b>Languages:</b> Java 17, JavaScript, TypeScript, SQL, C++</p>
+  <p><b>Backend:</b> Node.js, Express, Spring Boot 3, Spring Security, Spring Data JPA, Hibernate, REST API design, JWT</p>
+  <p><b>Data:</b> MongoDB (indexing), MySQL, Redis (caching)</p>
+  <p><b>Frontend:</b> React, Angular 16</p>
+  <p><b>Integrations:</b> OpenAI API, Google Gemini API, Spring Mail (SMTP), Cheerio (HTML parsing)</p>
+  <p><b>Tools:</b> Git, GitHub, Postman, Wireshark, HTTP Toolkit, DigitalOcean</p>
+</div>
+
+<h2>Education</h2>
+<div class="row"><h3>B.Tech, Computer Science &amp; Engineering, Graphic Era University, Dehradun <span style="font-weight:400">· CGPA 7.9/10</span></h3><span class="when">2021 – 2025</span></div>
+
+<h2>Achievements &amp; Certifications</h2>
+<ul>
+  <li>MSME Hackathon winner with the Jurident team (government grant covering 95% of project funding) · 400+ DSA problems
+    solved on LeetCode, peak contest rating 1733.</li>
+  <li>Certifications: Generative AI (Google); API Fundamentals (Postman).</li>
+</ul>
+
+</body>
+</html>
